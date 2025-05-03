@@ -48,7 +48,7 @@ $isLoggedIn = Session::isLoggedIn();
         <div
             class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
 
-            <a  href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/index.php" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
+            <a  href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/index.php" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
                 <svg class="w-auto h-6 text-indigo-600 fill-current" viewBox="0 0 194 116"
                     xmlns="http://www.w3.org/2000/svg">
                     <g fill-rule="evenodd">
@@ -62,13 +62,13 @@ $isLoggedIn = Session::isLoggedIn();
 
             <nav id="nav"
                 class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-64 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative">
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/index.php"
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/index.php"
                     class="ml-0 mr-0 font-bold duration-100 md:ml-12 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Home</a>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/about.php"
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/about.php"
                     class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">About</a>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/analyze.php"
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/analyze.php"
                     class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Analyze Application</a>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/history.php"
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/history.php"
                     class="font-bold duration-100 transition-color hover:text-indigo-600">History</a>
                 <!-- <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
                     <a href="./auth/login.php" class="w-full py-2 font-bold text-center text-pink-500">Login</a>
@@ -86,9 +86,9 @@ $isLoggedIn = Session::isLoggedIn();
                     <span class="text-gray-800 font-bold">Welcome, <?= htmlspecialchars($user['first_name']) ?>!</span>
                     <a href="./logout.php" class="ml-4 text-red-500 font-bold">Logout</a>
                 <?php else: ?>
-                    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/auth/login.php"
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/auth/login.php"
                     class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-white sm:mr-3 md:mt-0">Login</a>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/scholarship_award/auth/register.php"
+                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/auth/register.php"
                     class="relative z-40 inline-block w-auto h-full px-5 py-3 text-sm font-bold leading-none text-white transition-all transition duration-100 duration-300 bg-indigo-700 rounded shadow-md fold-bold lg:bg-white lg:text-indigo-700 sm:w-full lg:shadow-none hover:shadow-xl">Get
                     Started</a>
                 <svg class="absolute top-0 left-0 hidden w-screen max-w-3xl -mt-64 -ml-12 lg:block"
