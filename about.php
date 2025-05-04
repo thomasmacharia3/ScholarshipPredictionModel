@@ -13,9 +13,7 @@
                     <h2
                         class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">
                         About Us</h2>
-                    <p class="my-6 text-xl font-medium text-gray-500">Don't just take our word for it, read from our
-                        extensive
-                        list of current awardees and beneficiaries testimonials.</p>
+                    <p class="my-6 text-xl font-medium text-gray-500">Don't just take our word for it, read from our extensive list of current awardees and beneficiaries testimonials.</p>
 
                 </div>
                 <div class="flex flex-col items-center justify-center max-w-2xl py-8 mx-auto xl:flex-row xl:max-w-full">
