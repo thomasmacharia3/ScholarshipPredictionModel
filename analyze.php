@@ -9,108 +9,126 @@
         <p class="my-6 text-xl font-medium text-gray-500">Fill out the details below to analyze scholarship application.</p>
       </div>
 
-      <div class="w-full xl:w-full xl:pr-8 justify-center items-center">
-    
-    <form id="scholarshipForm" class="space-y-6">
-    <!-- Upload CSV Section -->
-    <div id="upload-csv" class="hidden">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="file-upload">Upload CSV/Excel File</label>
-        <input type="file" id="file-upload" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" accept=".csv, .xls, .xlsx">
-        <button type="button" onclick="uploadCSV()" class="w-full py-3 bg-indigo-600 text-white rounded mt-4">Upload and Analyze</button>
-      </div> <!-- End of Upload CSV Section -->
-
-      <!-- Switch Between Forms -->
-      <div class="flex justify-between mt-6">
-        <button type="button" onclick="showPersonalDetails()" class="w-full py-3 bg-indigo-600 text-white rounded">Personal Details</button>
-        <button type="button" onclick="showUploadCSV()" class="w-full py-3 bg-indigo-600 text-white rounded">Upload CSV</button>
-      </div>
-      <!-- Personal Details Section -->
-      <div id="personal-details" class="block">
-          <!-- Personal Details -->
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">First Name</label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="first-name" type="text" placeholder="Jane" required>
-            </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="last-name">Last Name</label>
-              <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="last-name" type="text" placeholder="Doe" required>
-            </div>
+      <div class="w-3/4 mx-auto flex justify-center items-center mb-12">
+        <form id="scholarshipForm" class="space-y-6">
+          
+          <!-- Switch Between Forms -->
+          <div class="flex justify-between mt-6">
+            <button type="button" onclick="showPersonalDetails()" class="w-full py-3 bg-indigo-600 text-white rounded">Scholarship Details</button>
+            <button type="button" onclick="showUploadCSV()" class="w-full py-3 bg-indigo-600 text-white rounded">Upload Data</button>
           </div>
 
-      <!-- Gender -->
-      <div>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">Gender</label>
-        <select id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
+          <!-- Upload CSV Section -->
+          <div id="upload-csv" class="hidden">
+            <!-- Name Input -->
+            <div class="mb-6">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="csv-name">File Name</label>
+              <input type="text" id="csv-name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Enter a name for this file" required>
+            </div>
+
+            <!-- Description Input -->
+            <div class="mb-6">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="csv-description">Description</label>
+              <textarea id="csv-description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Enter a description for the file" rows="4" required></textarea>
+            </div>
+
+            <!-- File Upload -->
+            <div class="mb-6">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="file-upload">Upload CSV/Excel File</label>
+              <input type="file" id="file-upload" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" accept=".csv, .xls, .xlsx" required>
+            </div>
+
+            <!-- Upload Button -->
+            <button type="button" onclick="uploadCSV()" class="w-full py-3 bg-indigo-600 text-white rounded mt-4">Upload and Analyze</button>
+          </div> <!-- End of Upload CSV Section -->
+
+          <!-- Personal Details Section -->
+          <div id="personal-details" class="block">
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">First Name</label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="first-name" type="text" placeholder="Jane" required>
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="last-name">Last Name</label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="last-name" type="text" placeholder="Doe" required>
+              </div>
+            </div>
+
+            <!-- Gender -->
+            <div>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">Gender</label>
+              <select id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <!-- Education Qualification -->
+            <div>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="education-qualification">Education Qualification</label>
+              <select id="education-qualification" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+                <option value="Doctorate">Doctorate</option>
+              </select>
+            </div>
+
+            <!-- Disability & Sports -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="disability">Disability</label>
+                <select id="disability" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sports">Sports</label>
+                <select id="sports" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Annual Percentage -->
+            <div>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="annual-percentage">Annual Percentage</label>
+              <select id="annual-percentage" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="60-70">60-70</option>
+                <option value="70-80">70-80</option>
+                <option value="80-90">80-90</option>
+                <option value="90-100">90-100</option>
+              </select>
+            </div>
+
+            <!-- Income -->
+            <div>
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="income">Income</label>
+              <select id="income" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="Upto 1.5L">Below 200K</option>
+                <option value="1.5L to 3L">200K-500K</option>
+                <option value="3L to 6L">500K-1M</option>
+                <option value="Above 6L">Above 1M</option>
+              </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="submitForm()" class="w-full py-3 bg-indigo-600 text-white rounded mt-4">Start Analysis</button>
+
+            <!-- Result Display -->
+            <div id="result" class="mt-6 text-center text-xl font-bold"></div>
+          </div> <!-- End of Personal Details Section -->
+        </form>
       </div>
-
-      <!-- Education Qualification -->
-      <div>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="education-qualification">Education Qualification</label>
-        <select id="education-qualification" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option value="Undergraduate">Undergraduate</option>
-          <option value="Postgraduate">Postgraduate</option>
-          <option value="Doctorate">Doctorate</option>
-        </select>
-      </div>
-
-      <!-- Disability & Sports -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="disability">Disability</label>
-          <select id="disability" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            <option value="No">No</option>
-            <option value="Yes">Yes</option>
-          </select>
-        </div>
-        <div>
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sports">Sports</label>
-          <select id="sports" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            <option value="No">No</option>
-            <option value="Yes">Yes</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Annual Percentage -->
-      <div>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="annual-percentage">Annual Percentage</label>
-        <select id="annual-percentage" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option value="60-70">60-70</option>
-          <option value="70-80">70-80</option>
-          <option value="80-90">80-90</option>
-          <option value="90-100">90-100</option>
-        </select>
-      </div>
-
-      <!-- Income -->
-      <div>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="income">Income</label>
-        <select id="income" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option value="Upto 1.5L">Below 200K</option>
-          <option value="1.5L to 3L">200K-500K</option>
-          <option value="3L to 6L">500K-1M</option>
-          <option value="Above 6L">Above 1M</option>
-        </select>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="button" onclick="submitForm()" class="w-full py-3 bg-indigo-600 text-white rounded mt-4">Start Analysis</button>
-
-      <!-- Result Display -->
-      <div id="result" class="mt-6 text-center text-xl font-bold"></div>
-      </div> <!-- End of Personal Details Section -->
-
-      
-    </form>
+    </div>
+  </div>
 </div>
 
 
+<?php require_once('./inc/footer.php'); ?>
 
-</div>
 
 <script>
 function submitForm() {
@@ -183,5 +201,4 @@ function uploadCSV() {
   }
 }
 </script>
-<?php require_once('./inc/footer.php'); ?>
 
