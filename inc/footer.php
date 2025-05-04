@@ -87,6 +87,7 @@
 
             <div class="pt-2 pt-4 mt-2 text-center text-white-600">Developed By <a href="#">Thomas Nyambura -- 078580</a></div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <!-- a little JS for the mobile nav button -->
     <script>

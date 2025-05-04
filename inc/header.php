@@ -18,6 +18,8 @@ $isLoggedIn = Session::isLoggedIn();
     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
     <!-- Small CSS to Hide elements at 1520px size -->
+
+     
     <style>
         /* Media query for smaller screen sizes */
         @media (max-width: 1520px) {
