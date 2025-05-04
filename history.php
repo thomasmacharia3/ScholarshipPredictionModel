@@ -15,12 +15,12 @@ $result = $conn->query($sql);
 
 <?php require_once('./inc/header.php') ?>
 
-
+<h2 class="text-3xl font-bold text-center bg-indigo-600 mb-6 text-white p-5">Scholarship Visualizations</h2>
 <div class="container min-h-screen mx-auto mt-10 p-5">
-    <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Scholarship Applications</h2>
+   
 
     <!-- Flexbox for side by side layout -->
-    <div class="flex justify-between gap-8 bg-gray-100 p-5">
+    <div class="flex justify-between gap-8 bg-gray-100 p-5  ">
 
         <!-- Chart Section (left) -->
         <div class="flex-1">
@@ -49,7 +49,7 @@ $result = $conn->query($sql);
         <!-- Table Section (right) -->
         <div class="flex-1 overflow-x-auto bg-white shadow-lg rounded-lg">
             <table class="min-w-full border-collapse w-full">
-                <thead class="bg-blue-600 text-white">
+                <thead class="bg-indigo-600 text-white">
                     <tr>
                         <th class="p-4 text-left">ID</th>
                         <th class="p-4 text-left">Name</th>
@@ -88,7 +88,7 @@ $result = $conn->query($sql);
     </div>
 
 </div>
-
+                </div>
 <?php require_once('./inc/footer.php') ?>
 
 
@@ -130,7 +130,7 @@ const chartData = {
   fill: {
     opacity: 0.8,
   },
-  colors: ["#4CAF50", "#F44336"],
+  colors: ["#4f46e5", "#F44336"],
   tooltip: {
     theme: "dark",
   },

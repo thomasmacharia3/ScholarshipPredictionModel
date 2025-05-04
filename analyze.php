@@ -12,8 +12,21 @@
       <div class="w-full xl:w-full xl:pr-8 justify-center items-center">
     
     <form id="scholarshipForm" class="space-y-6">
+    <!-- Upload CSV Section -->
+    <div id="upload-csv" class="hidden">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="file-upload">Upload CSV/Excel File</label>
+        <input type="file" id="file-upload" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" accept=".csv, .xls, .xlsx">
+        <button type="button" onclick="uploadCSV()" class="w-full py-3 bg-indigo-600 text-white rounded mt-4">Upload and Analyze</button>
+      </div> <!-- End of Upload CSV Section -->
 
-      <!-- Personal Details -->
+      <!-- Switch Between Forms -->
+      <div class="flex justify-between mt-6">
+        <button type="button" onclick="showPersonalDetails()" class="w-full py-3 bg-indigo-600 text-white rounded">Personal Details</button>
+        <button type="button" onclick="showUploadCSV()" class="w-full py-3 bg-indigo-600 text-white rounded">Upload CSV</button>
+      </div>
+      <!-- Personal Details Section -->
+      <div id="personal-details" class="block">
+          <!-- Personal Details -->
           <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">First Name</label>
@@ -27,10 +40,10 @@
 
       <!-- Gender -->
       <div>
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">Gender</label>
-      <select id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">Gender</label>
+        <select id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
         </select>
       </div>
 
@@ -40,7 +53,7 @@
         <select id="education-qualification" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
           <option value="Undergraduate">Undergraduate</option>
           <option value="Postgraduate">Postgraduate</option>
-          <option value="Doctrate">Doctorate</option>
+          <option value="Doctorate">Doctorate</option>
         </select>
       </div>
 
@@ -89,8 +102,14 @@
 
       <!-- Result Display -->
       <div id="result" class="mt-6 text-center text-xl font-bold"></div>
+      </div> <!-- End of Personal Details Section -->
+
+      
     </form>
-  </div>
+</div>
+
+
+
 </div>
 
 <script>
@@ -129,6 +148,40 @@ function submitForm() {
     });
 }
 </script>
+<script>
+// Toggle between personal details form and file upload form
+function showPersonalDetails() {
+  document.getElementById("personal-details").style.display = "block";
+  document.getElementById("upload-csv").style.display = "none";
+}
 
+function showUploadCSV() {
+  document.getElementById("personal-details").style.display = "none";
+  document.getElementById("upload-csv").style.display = "block";
+}
+
+// Form submission (Personal Details)
+function submitForm() {
+  const formData = new FormData(document.getElementById('scholarshipForm'));
+
+  // Process data and display results (for personal form)
+  document.getElementById('result').innerText = 'Analysis in progress...';
+  // Make AJAX request or submit form data to your back-end for processing.
+}
+
+// Handle CSV file upload and process
+function uploadCSV() {
+  const fileInput = document.getElementById('file-upload');
+  const file = fileInput.files[0];
+  
+  if (file) {
+    // Process the uploaded file (parse CSV/Excel and calculate scores)
+    document.getElementById('result').innerText = 'Processing CSV data...';
+    // Implement your back-end to handle the CSV or Excel file
+  } else {
+    alert('Please upload a file.');
+  }
+}
+</script>
 <?php require_once('./inc/footer.php'); ?>
 
