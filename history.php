@@ -20,11 +20,11 @@ $result = $conn->query($sql);
     <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Scholarship Applications</h2>
 
     <!-- Flexbox for side by side layout -->
-    <div class="flex justify-between gap-8">
+    <div class="flex justify-between gap-8 bg-gray-100 p-5">
 
         <!-- Chart Section (left) -->
         <div class="flex-1">
-            <div class="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mb-8 py-20">
+            <div class="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-900 shadow-md mb-8 py-20">
                 <div class="relative mx-4 mt-4 flex flex-col gap-4 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none md:flex-row md:items-center">
                     <div class="w-max rounded-lg bg-gray-900 p-5 text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6">
@@ -32,7 +32,7 @@ $result = $conn->query($sql);
                         </svg>
                     </div>
                     <div>
-                        <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                        <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-gray-900 antialiased">
                             Scholarship Status Chart
                         </h6>
                         <p class="block max-w-sm font-sans text-sm font-normal leading-normal text-gray-700 antialiased">
@@ -52,8 +52,7 @@ $result = $conn->query($sql);
                 <thead class="bg-blue-600 text-white">
                     <tr>
                         <th class="p-4 text-left">ID</th>
-                        <th class="p-4 text-left">First Name</th>
-                        <th class="p-4 text-left">Last Name</th>
+                        <th class="p-4 text-left">Name</th>
                         <th class="p-4 text-left">Gender</th>
                         <th class="p-4 text-left">Award Status</th>
                         <th class="p-4 text-left">Timestamp</th>
@@ -65,8 +64,10 @@ $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr class='border-b hover:bg-gray-100'>
                                 <td class='p-4'>{$row['id']}</td>
-                                <td class='p-4'>{$row['first_name']}</td>
-                                <td class='p-4'>{$row['last_name']}</td>
+                               <td class='p-4'>" . $row['first_name'] . ' ' . $row['last_name'] . "</td>
+
+
+
                                 <td class='p-4'>{$row['gender']}</td>
                                 <td class='p-4 text-center'>
                                     <span class='px-3 py-1 rounded-full text-white text-sm " . 
