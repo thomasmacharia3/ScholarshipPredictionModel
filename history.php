@@ -26,12 +26,7 @@ $result = $conn->query($sql);
                         <th class="p-4 text-left">ID</th>
                         <th class="p-4 text-left">First Name</th>
                         <th class="p-4 text-left">Last Name</th>
-                        <th class="p-4 text-left">Education Qualification</th>
-                        <th class="p-4 text-left">Income Level</th>
-                        <th class="p-4 text-left">Annual Score</th>
                         <th class="p-4 text-left">Gender</th>
-                        <th class="p-4 text-left">Disability</th>
-                        <th class="p-4 text-left">Sports</th>
                         <th class="p-4 text-left">Award Status</th>
                         <th class="p-4 text-left">Timestamp</th>
                     </tr>
@@ -44,12 +39,7 @@ $result = $conn->query($sql);
                                 <td class='p-4'>{$row['id']}</td>
                                 <td class='p-4'>{$row['first_name']}</td>
                                 <td class='p-4'>{$row['last_name']}</td>
-                                <td class='p-4'>{$row['education_qualification']}</td>
-                                <td class='p-4'>{$row['income_level']}</td>
-                                <td class='p-4'>{$row['annual_percentage_score']}</td>
                                 <td class='p-4'>{$row['gender']}</td>
-                                <td class='p-4'>" . ($row['disability'] == 'Yes' ? '✅' : '❌') . "</td>
-                                <td class='p-4'>" . ($row['sports'] == 'Yes' ? '🏆' : '—') . "</td>
                                 <td class='p-4 text-center'>
                                     <span class='px-3 py-1 rounded-full text-white text-sm " . 
                                     ($row['award_status'] == 'Awarded' ? 'bg-green-500' : ($row['award_status'] == 'Pending' ? 'bg-yellow-500' : 'bg-red-500')) .

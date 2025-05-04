@@ -27,10 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     
     $message = $user->login($email, $password);
     if ($message === true) {
-        header("Location: index.php"); // Redirect to dashboard
-        exit;
+        session_start();
+                $_SESSION['success_message'] = 'Login successful!';
+                header("Location: http://localhost/ScholarshipPredictionModel/analyze.php");
+                // Redirect to the login page
+                exit();  // Always call exit after header redirection to stop further execution
     } else {
-        echo $message; // Show error
+        session_start();
+            $_SESSION['error_message'] = 'User does not exist!';
+            
+            // Redirect to the login page
+            header("Location: ../auth/login.php");  // Change 'login.php' to your actual login page URL
+            exit();  // Always call exit after header redirection to stop further execution
     }
 }
 

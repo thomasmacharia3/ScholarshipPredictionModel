@@ -9,8 +9,24 @@
         <h2 class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">Login to Your Account</h2>
         <p class="my-6 text-xl font-medium text-gray-500">Enter your credentials to log in.</p>
       </div>
+        
 
       <div class="w-full xl:w-full xl:pr-8 justify-center items-center">
+        
+      
+      
+      <?php if (isset($_SESSION['success_message'])) { ?>
+    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+        <span class="font-medium"><?php echo $_SESSION['success_message']; ?></span>
+    </div>
+    <?php
+    // Unset the success message to ensure it doesn't show up on page reload
+    unset($_SESSION['success_message']);
+}
+?>
+
+
+     
         <form id="loginForm" class="w-full max-w-lg" method="POST" action="../user/auth.php">
           <!-- Email -->
           <div class="flex flex-wrap -mx-3 mb-6">

@@ -22,18 +22,35 @@ class User {
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            return "Email is already registered.";
+            
+            session_start();
+            $_SESSION['error_message'] = 'Email is already registered.';
+            
+            // Redirect back to the registration page
+            header("Location: ../auth/register.php");  // Change 'register.php' to your actual registration page URL
+            exit();  // Always call exit after header redirection
         }
 
         // Insert new user into database
         $hashedPassword = $this->hashPassword($password);
         $stmt = $this->conn->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $firstName, $lastName, $email, $hashedPassword);
-        
         if ($stmt->execute()) {
-            return "Registration successful!";
+            // Set the success message in the session (optional, for displaying in the login page)
+            session_start();
+            $_SESSION['success_message'] = 'Registration successful! Please log in.';
+            
+            // Redirect to the login page
+            header("Location: ../auth./login.php");  // Change 'login.php' to your actual login page URL
+            exit();  // Always call exit after header redirection to stop further execution
         } else {
-            return "Error during registration.";
+            // Set the error message in the session and redirect back to the registration page
+            session_start();
+            $_SESSION['error_message'] = 'Error during registration. Please try again.';
+            
+            // Redirect back to the registration page
+            header("Location: ../auth/register.php");  // Change 'register.php' to your actual registration page URL
+            exit();  // Always call exit after header redirection
         }
     }
 
@@ -56,10 +73,19 @@ class User {
                 $_SESSION['last_name'] = $lastName;
                 return true;
             } else {
-                return "Invalid password.";
+                session_start();
+                $_SESSION['success_message'] = 'Login successful!';
+                header("Location: http://localhost/ScholarshipPredictionModel/analyze.php");
+                // Redirect to the login page
+                exit();  // Always call exit after header redirection to stop further execution
             }
         } else {
-            return "No user found with that email.";
+            session_start();
+            $_SESSION['error_message'] = 'User does not exist!';
+            
+            // Redirect to the login page
+            header("Location: ../auth/login.php");  // Change 'login.php' to your actual login page URL
+            exit();  // Always call exit after header redirection to stop further execution
         }
     }
 

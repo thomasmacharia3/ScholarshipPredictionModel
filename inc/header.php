@@ -68,8 +68,10 @@ $isLoggedIn = Session::isLoggedIn();
                     class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">About</a>
                 <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/analyze.php"
                     class="mr-0 font-bold duration-100 md:mr-3 lg:mr-8 transition-color hover:text-indigo-600">Analyze Application</a>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/history.php"
+                    <?php if ($isLoggedIn): ?>
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/history.php"
                     class="font-bold duration-100 transition-color hover:text-indigo-600">History</a>
+                    <?php endif; ?>
                 <!-- <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
                     <a href="./auth/login.php" class="w-full py-2 font-bold text-center text-pink-500">Login</a>
                     <a href="../auth/register.php"
@@ -84,7 +86,7 @@ $isLoggedIn = Session::isLoggedIn();
                 
                 <?php if ($isLoggedIn): ?>
                     <span class="text-gray-800 font-bold">Welcome, <?= htmlspecialchars($user['first_name']) ?>!</span>
-                    <a href="./logout.php" class="ml-4 text-red-500 font-bold">Logout</a>
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/auth/logout.php" class="ml-4 text-red-500 font-bold">Logout</a>
                 <?php else: ?>
                     <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/ScholarshipPredictionModel/auth/login.php"
                     class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-white sm:mr-3 md:mt-0">Login</a>
